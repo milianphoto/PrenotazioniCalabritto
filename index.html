@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calabritto Emiliano — Prenota un Appuntamento</title>
-  <meta name="description" content="Prenota il tuo appuntamento con Calabritto Emiliano. Fototessera, consulenze matrimonio, 18esimi, comunioni e altro.">
-  <meta property="og:title" content="Calabritto Emiliano — Fotografia d'Autore">
+  <title>Studio Fotografico Emiliano Calabritto — Prenota un Appuntamento</title>
+  <meta name="description" content="Prenota il tuo appuntamento con lo Studio Fotografico Emiliano Calabritto a Montecorvino Rovella (SA). Fototessera, consulenze matrimonio, 18esimi, comunioni e altro.">
+  <meta property="og:title" content="Studio Fotografico Emiliano Calabritto — Fotografia d'Autore">
   <meta property="og:description" content="Prenota il tuo appuntamento online.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     .hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55)}
     .hero-content{position:relative;z-index:1;padding:60px 24px;max-width:700px}
     .hero .logo-mark{font-size:32px;color:var(--gold);margin-bottom:12px;letter-spacing:6px}
-    .hero .brand{font-family:var(--font-display);font-size:42px;font-weight:700;color:#fff;letter-spacing:2px;margin-bottom:4px}
+    .hero .brand{font-family:var(--font-display);font-size:36px;font-weight:700;color:#fff;letter-spacing:2px;margin-bottom:4px;white-space:nowrap}
     .hero .tagline{font-family:var(--font-display);font-style:italic;font-size:16px;color:rgba(255,255,255,0.7);letter-spacing:2px;margin-bottom:28px}
     .hero .cta-text{font-size:22px;font-weight:600;color:#fff;line-height:1.4;margin-bottom:8px}
     .hero .cta-sub{font-size:16px;color:rgba(255,255,255,0.8);font-weight:400}
@@ -134,7 +134,7 @@
     .footer{margin-top:52px;margin-bottom:32px;display:flex;gap:12px;font-size:13px;color:#aaa;letter-spacing:.5px}
     @keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     @media(max-width:600px){
-      .hero{min-height:280px}.hero .brand{font-size:30px}.hero .cta-text{font-size:18px}
+      .hero{min-height:280px}.hero .brand{font-size:22px}.hero .cta-text{font-size:18px}
       .datetime-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}
       .step-title{font-size:24px}.progress-label{font-size:11px}.progress-line{width:28px}
       .confirm-card{padding:36px 24px}.btn-row{flex-direction:column}.btn-back{width:100%;text-align:center}
@@ -149,10 +149,10 @@
   <div class="hero" id="hero-section">
     <div class="hero-content">
       <div class="logo-mark">✦</div>
-      <h1 class="brand">Studio fotografico Emilaino Calabritto</h1>
+      <h1 class="brand">Studio Fotografico Emiliano Calabritto</h1>
       <p class="tagline">Fotografia d'Autore</p>
-      <p class="cta-text">Prenota qui il tuo preventivo gratuit0</p>
-      <p class="cta-sub">Largo La SanFelice,4. Montecorvino Rovella, 84096 (SA) </p>
+      <p class="cta-text">Prenota qui il tuo preventivo gratuito</p>
+      <p class="cta-sub">Largo La SanFelice, 4 · Montecorvino Rovella, 84096 (SA)</p>
       <button class="scroll-hint" onclick="document.getElementById('booking-section').scrollIntoView({behavior:'smooth'})">Prenota ora ↓</button>
     </div>
   </div>
@@ -163,9 +163,9 @@
       <div class="progress" id="progress"></div>
       <div class="content" id="step-content"></div>
       <footer class="footer">
-        <span>© 2026 Calabritto Emiliano</span>
+        <span>© 2026 Studio Fotografico Emiliano Calabritto</span>
         <span style="color:#ccc">·</span>
-        <span>milian82@hotmail.it</span>
+        <span>info@calabrittoemiliano.com</span>
       </footer>
     </div>
     <div id="confirm-view" class="hidden"></div>
@@ -181,7 +181,7 @@
 const CONFIG = {
   // Numero WhatsApp (prefisso internazionale SENZA +)
   // Esempio: 393331234567 → +39 333 123 4567
-  whatsappNumber: "3925312405",
+  whatsappNumber: "393331234567",
 
   // PayPal Client ID (opzionale) — lascia "" se non vuoi PayPal
   paypalClientId: "",
@@ -193,8 +193,8 @@ const CONFIG = {
 const SERVICES = [
   { id: "fototessera", name: "Fototessera",           price: 10,   },
   { id: "matrimonio",  name: "Consulenza Matrimonio",  price: null, },
-  { id: "18esimo",     name: "Consulenza 18esimi",     price: null, },
-  { id: "comunione",   name: "Consulenza Comunioni",   price: null, },
+  { id: "18esimi",     name: "Consulenza 18esimi",     price: null, },
+  { id: "comunioni",   name: "Consulenza Comunioni",   price: null, },
   { id: "altro",       name: "Altro",                  price: null, },
 ];
 
