@@ -245,7 +245,7 @@
 // ═══════════════════════════════════════════════════════════════
 
 const CONFIG = {
-  whatsappNumber: "3925312405",
+  whatsappNumber: "393331234567",
   paypalClientId: "",
 
   // Google Sheets — URL del tuo Web App (vedi README)
@@ -254,7 +254,7 @@ const CONFIG = {
 };
 
 const SERVICES = [
-  { id: "fototessera", name: "Fototessera",           price: 5   },
+  { id: "fototessera", name: "Fototessera",           price: 10   },
   { id: "matrimonio",  name: "Consulenza Matrimonio",  price: null },
   { id: "18esimi",     name: "Consulenza 18esimi",     price: null },
   { id: "comunioni",   name: "Consulenza Comunioni",   price: null },
@@ -321,13 +321,17 @@ function isBooked(y,m,d,t){
 
 function buildWhatsAppUrl(){
   const s=getSvc(),c=state.client;
-  let m=`✦ *NUOVA PRENOTAZIONE*\n\n👤 *Cliente:* ${c.name}\n`;
-  if(c.phone)m+=`📞 *Telefono:* ${c.phone}\n`;
-  if(c.email)m+=`📧 *Email:* ${c.email}\n`;
-  m+=`\n📸 *Servizio:* ${s.name}\n📅 *Data:* ${formatDate()}\n🕐 *Orario:* ${state.selectedTime}\n💰 *Prezzo:* ${priceLabel(s.price)}\n`;
-  if(state.serviceId==="altro"&&state.customDesc)m+=`\n📝 *Richiesta:* ${state.customDesc}\n`;
-  if(c.notes)m+=`\n💬 *Note:* ${c.notes}\n`;
-  return`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(m)}`;
+  let m="\u2728 *NUOVA PRENOTAZIONE*\n\n";
+  m+="\uD83D\uDC64 *Cliente:* "+c.name+"\n";
+  if(c.phone)m+="\uD83D\uDCDE *Telefono:* "+c.phone+"\n";
+  if(c.email)m+="\uD83D\uDCE7 *Email:* "+c.email+"\n";
+  m+="\n\uD83D\uDCF8 *Servizio:* "+s.name+"\n";
+  m+="\uD83D\uDCC5 *Data:* "+formatDate()+"\n";
+  m+="\uD83D\uDD50 *Orario:* "+state.selectedTime+"\n";
+  m+="\uD83D\uDCB0 *Prezzo:* "+priceLabel(s.price)+"\n";
+  if(state.serviceId==="altro"&&state.customDesc)m+="\n\uD83D\uDCDD *Richiesta:* "+state.customDesc+"\n";
+  if(c.notes)m+="\n\uD83D\uDCAC *Note:* "+c.notes+"\n";
+  return"https://wa.me/"+CONFIG.whatsappNumber+"?text="+encodeURIComponent(m);
 }
 
 // ── LIGHTBOX ──
@@ -430,7 +434,11 @@ function loadPayPal(s){
 function resetAll(){state={step:0,serviceId:null,customDesc:"",curMonth:new Date().getMonth(),curYear:new Date().getFullYear(),selectedDay:null,selectedTime:null,client:{name:"",email:"",phone:"",notes:""}};document.getElementById("confirm-view").classList.add("hidden");document.getElementById("hero-section").classList.remove("hidden");document.getElementById("gallery-section").classList.remove("hidden");document.getElementById("booking-view").classList.remove("hidden");render();window.scrollTo({top:0,behavior:'smooth'})}
 
 // ── INIT ──
-fetchBookedSlots().then(()=>render());
+render();
+fetchBookedSlots().then(()=>{
+  // Aggiorna step 1 se è già visibile
+  if(state.step===1) renderStep1(document.getElementById("step-content"));
+});
 </script>
 </body>
 </html>
